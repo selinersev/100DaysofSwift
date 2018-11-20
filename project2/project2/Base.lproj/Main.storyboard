@@ -30,7 +30,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Counter" id="adg-L8-xZ0">
-                                        <barButtonItem key="leftBarButtonItem" title="Reset" id="t62-gQ-QH3"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Reset" id="t62-gQ-QH3">
+                                            <connections>
+                                                <action selector="reset:" destination="BYZ-38-t0r" id="5S8-7a-fen"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -40,7 +44,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="Tap or Hold"/>
                                 <connections>
-                                    <action selector="tapCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NQP-d5-BEj"/>
+                                    <action selector="count:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8hJ-1J-WSe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -49,12 +53,13 @@
                     </view>
                     <connections>
                         <outlet property="label" destination="CGc-Wu-kE2" id="KyB-LS-8ZN"/>
-                        <outlet property="tapOrHoldButton" destination="1Ip-qB-sL6" id="A4h-D1-Vgq"/>
+                        <outlet property="resetButton" destination="t62-gQ-QH3" id="faT-kV-vEg"/>
+                        <outlet property="tapButton" destination="1Ip-qB-sL6" id="rxm-S4-ZWw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="133.5832083958021"/>
+            <point key="canvasLocation" x="-351" y="-367"/>
         </scene>
     </scenes>
 </document>

@@ -10,13 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
-    @IBOutlet var longPress: UILongPressGestureRecognizer!
+
     @IBOutlet weak var tapButton: UIButton!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var resetButton: UIBarButtonItem!
     var counter : Int = 0
-    
+
     
     @IBAction func reset(_ sender: UIBarButtonItem) {
         counter = 0
@@ -27,12 +26,13 @@ class ViewController: UIViewController {
         self.label.text = String(counter)
     }
     
-    func countLongAction() {
-        if longPress.state == .began{
+    @objc func countLongAction(_ sender:UILongPressGestureRecognizer) {
+        if sender.state == .began{
             counter = counter + 1
             self.label.text = String(counter)
         }
         else{
+            counter = counter + 1
             label.text = String(counter)
         }
         
@@ -41,7 +41,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         label.text = "0"
-        longPress = UILongPressGestureRecognizer(target: self, action: Selector(("countLongAction")))
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(countLongAction(_:)))
+        longPress.minimumPressDuration = 0.2
         tapButton.addGestureRecognizer(longPress)
         
     }
